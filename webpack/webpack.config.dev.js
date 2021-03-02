@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './app.js',
@@ -7,6 +8,14 @@ module.exports = {
     filename: 'bundle.js',
   },
   mode: 'development',
+  devServer: {
+    contentBase: './dist',
+    port: 8080,
+    hot: true,
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin() //启用 webpack 内置的 HMR插件
+  ],
   module: {
     rules: [
       {

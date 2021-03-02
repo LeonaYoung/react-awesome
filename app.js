@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Index from './src/homePage/index'
 
 ReactDOM.render(
-  <h1>hello world!</h1>,
+  <Index />,
   document.getElementById('root')
 );
