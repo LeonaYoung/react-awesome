@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './app.js',
@@ -14,6 +15,9 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new htmlWebpackPlugin({
+      template: 'index.html'
+    }),
     new webpack.HotModuleReplacementPlugin() //启用 webpack 内置的 HMR插件
   ],
   module: {
@@ -30,5 +34,4 @@ module.exports = {
       }
     ]
   }
-  
 };
