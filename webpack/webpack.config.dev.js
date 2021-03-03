@@ -18,7 +18,6 @@ module.exports = {
     new htmlWebpackPlugin({
       template: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin() //启用 webpack 内置的 HMR插件
   ],
   module: {
     rules: [
