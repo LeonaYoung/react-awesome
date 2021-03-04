@@ -1,8 +1,13 @@
 import React from 'react';
+import 'antd/dist/antd.css';
+import { DatePicker } from 'antd';
 
 function Index() {
   return (
-    <h1>Hello React</h1>
+    <div>
+      <h1>Hello React</h1>
+      <DatePicker />
+    </div>
   )
 }
 
