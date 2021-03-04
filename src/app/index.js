@@ -9,6 +9,7 @@ import {
   UploadOutlined,
 } from '@ant-design/icons';
 import './style.css';
+import UserManage from '../userManage/index.js';
 
 const { Header, Sider, Content } = Layout;
 
@@ -50,7 +51,7 @@ function Index() {
             minHeight: 280,
           }}
         >
-          Content
+          <UserManage />
         </Content>
       </Layout>
     </Layout>
