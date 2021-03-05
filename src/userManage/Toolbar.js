@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Row, Col, Form, Input, Button, Checkbox } from 'antd';
 import { incremented } from './actions.js'
+import fetch from '../../request';
 
 const layout = {
   labelCol: { span: 8 },
@@ -13,6 +14,7 @@ function Toolbar(props) {
 
   const onSearch = () => {
     props.incremented();
+    fetch();
   }
   const onFinish = (values) => {
     console.log('Success:', values);

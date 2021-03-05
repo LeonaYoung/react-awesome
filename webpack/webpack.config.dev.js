@@ -13,6 +13,9 @@ module.exports = {
     contentBase: './dist',
     port: 8080,
     hot: true,
+    proxy: {
+      '/user/list': 'http://localhost:3000',
+    },
   },
   plugins: [
     new htmlWebpackPlugin({
