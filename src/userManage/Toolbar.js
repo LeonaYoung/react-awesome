@@ -1,12 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { Row, Col, Form, Input, Button, Checkbox } from 'antd';
+import { incremented } from './actions.js'
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
 
-function Toolbar() {
+function Toolbar(props) {
+  const { counter } = props;
+
+  const onSearch = () => {
+    props.incremented();
+  }
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -16,6 +23,7 @@ function Toolbar() {
   };
   return (
     <>
+      <p>{counter}</p>
       <Form
         {...layout}
         name="basic"
@@ -42,7 +50,7 @@ function Toolbar() {
           </Col>
           <Col span={2}>
             <Form.Item>
-              <Button type="primary" htmlType="submit" style={{marginLeft: 20}}>
+              <Button type="primary" style={{marginLeft: 20}} onClick={onSearch}>
                 查询
               </Button>
             </Form.Item>
@@ -53,4 +61,17 @@ function Toolbar() {
   )
 }
 
-export default Toolbar;
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    counter: state.counter,
+  }
+}
+
+const mapDispatchToProps =  (dispatch) => {
+  return {
+    incremented: () => dispatch(incremented())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+
