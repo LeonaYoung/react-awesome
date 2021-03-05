@@ -12,6 +12,7 @@ import {
 import './style.css';
 import HomePage from '../homePage/index';
 import UserManage from '../userManage/index.js';
+import ProductManage from '../productManage/index.js';
 
 const { Header, Sider, Content } = Layout;
 
@@ -34,8 +35,8 @@ function Index() {
             <Menu.Item key="2" icon={<VideoCameraOutlined />}>
               <Link to="/usermanage">UserManage</Link>
             </Menu.Item>
-            <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
+            <Menu.Item key="3" icon={<VideoCameraOutlined />}>
+              <Link to="/productManage">ProductManage</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -60,6 +61,9 @@ function Index() {
               </Route>
               <Route exact path="/usermanage">
                 <UserManage />
+              </Route>
+              <Route exact path="/productManage">
+                <ProductManage />
               </Route>
             </Switch>
           </Content>

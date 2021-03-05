@@ -86,7 +86,7 @@ function Datatable(props) {
 
 const mapStateToProps = (state /*, ownProps*/) => {
   return {
-    list: state.counterReducer.list,
+    list: state.productReducer.list,
   }
 }
 
