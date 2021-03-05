@@ -9,3 +9,10 @@ export function decremented() {
     type: 'counter/decremented',
   }
 }
+
+export function getUserList(payload) {
+  return {
+    type: 'user/list',
+    payload,
+  }
+}

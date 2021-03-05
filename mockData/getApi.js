@@ -2,13 +2,26 @@ module.exports = {
   "data": {
     "list": [
       {
-        "name": "zhangsan",
-        "phone": 13109913432
+        key: '1',
+        name: 'Test User',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer'],
       },
       {
-        "name": "lisi",
-        "phone": 13109913411
-      }
+        key: '2',
+        name: 'Jim Green',
+        age: 42,
+        address: 'London No. 1 Lake Park',
+        tags: ['loser'],
+      },
+      {
+        key: '3',
+        name: 'Joe Black',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher'],
+      },
     ]
   },
   "errno": 0

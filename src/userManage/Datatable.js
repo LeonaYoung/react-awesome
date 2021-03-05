@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { Table, Tag, Space } from 'antd';
 
 const columns = [
@@ -74,12 +75,21 @@ const data = [
   },
 ];
 
-function Datatable() {
+function Datatable(props) {
+  const { list } = props;
   return (
     <>
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={list} />
     </>
   )
 }
 
-export default Datatable;
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    list: state.list,
+  }
+}
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Datatable);

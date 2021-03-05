@@ -14,6 +14,21 @@ function parseJSON(response) {
   return response.json()
 }
 
+export function getRequest(url, params) {
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(function(data) {
+        // console.log('request succeeded with JSON response', data)
+        resolve(data);
+      }).catch(function(error) {
+        console.log('request failed', error)
+        reject(error)
+      })
+  })
+}
+
 export default fetch('/user/list')
   .then(checkStatus)
   .then(parseJSON)

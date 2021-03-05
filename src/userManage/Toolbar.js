@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Row, Col, Form, Input, Button, Checkbox } from 'antd';
-import { incremented } from './actions.js'
-import fetch from '../../request';
+import { incremented, getUserList } from './actions.js'
+import { getRequest } from '../../request';
 
 const layout = {
   labelCol: { span: 8 },
@@ -14,7 +14,11 @@ function Toolbar(props) {
 
   const onSearch = () => {
     props.incremented();
-    fetch();
+    getRequest('/user/list').then((data) => {
+      if (data.data.list) {
+        props.getUserList(data.data.list)
+      }
+    });
   }
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -25,7 +29,6 @@ function Toolbar(props) {
   };
   return (
     <>
-      <p>{counter}</p>
       <Form
         {...layout}
         name="basic"
@@ -71,7 +74,8 @@ const mapStateToProps = (state /*, ownProps*/) => {
 
 const mapDispatchToProps =  (dispatch) => {
   return {
-    incremented: () => dispatch(incremented())
+    incremented: () => dispatch(incremented()),
+    getUserList: (params) => dispatch(getUserList(params))
   }
 }
 
