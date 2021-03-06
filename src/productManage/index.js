@@ -6,7 +6,6 @@ import Datatable from './Datatable';
 function Index() {
   return (
     <>
-    <p>pro</p>
       <Toolbar />
       <Divider />
       <Datatable />

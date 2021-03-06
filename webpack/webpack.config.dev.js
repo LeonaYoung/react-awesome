@@ -13,6 +13,7 @@ module.exports = {
     contentBase: './dist',
     port: 8080,
     hot: true,
+    historyApiFallback: true,
     proxy: {
       '/user/list': 'http://localhost:3000',
     },
@@ -26,7 +27,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {

@@ -56,14 +56,11 @@ function Index() {
             }}
           >
             <Switch>
-              <Route exact path="/">
-                <HomePage />
+              <Route exact path="/" component={HomePage}>
               </Route>
-              <Route exact path="/usermanage">
-                <UserManage />
+              <Route exact path="/usermanage" component={UserManage}>
               </Route>
-              <Route exact path="/productManage">
-                <ProductManage />
+              <Route exact path="/productManage" component={ProductManage}>
               </Route>
             </Switch>
           </Content>
