@@ -12,7 +12,6 @@ import {
 import './style.css';
 import HomePage from '../homePage/index';
 import UserManage from '../userManage/index.js';
-import ProductManage from '../productManage/index.js';
 
 const { Header, Sider, Content } = Layout;
 
@@ -35,9 +34,6 @@ function Index() {
             <Menu.Item key="2" icon={<VideoCameraOutlined />}>
               <Link to="/usermanage">UserManage</Link>
             </Menu.Item>
-            <Menu.Item key="3" icon={<VideoCameraOutlined />}>
-              <Link to="/productManage">ProductManage</Link>
-            </Menu.Item>
           </Menu>
         </Sider>
         <Layout className="site-layout">
@@ -59,8 +55,6 @@ function Index() {
               <Route exact path="/" component={HomePage}>
               </Route>
               <Route exact path="/usermanage" component={UserManage}>
-              </Route>
-              <Route exact path="/productManage" component={ProductManage}>
               </Route>
             </Switch>
           </Content>

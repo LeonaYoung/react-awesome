@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Row, Col, Form, Input, Button, Checkbox } from 'antd';
-import { incremented, getUserList } from './actions.js'
+import { NAMESPACE } from './constants';
+import { getUserList } from './actions.js'
 import { getRequest } from '../../request';
 
 const layout = {
@@ -10,10 +11,8 @@ const layout = {
 };
 
 function Toolbar(props) {
-  const { counter } = props;
 
   const onSearch = () => {
-    props.incremented();
     getRequest('/user/list').then((data) => {
       if (data.data.list) {
         props.getUserList(data.data.list)
@@ -68,13 +67,11 @@ function Toolbar(props) {
 
 const mapStateToProps = (state /*, ownProps*/) => {
   return {
-    counter: state.counter,
   }
 }
 
 const mapDispatchToProps =  (dispatch) => {
   return {
-    incremented: () => dispatch(incremented()),
     getUserList: (params) => dispatch(getUserList(params))
   }
 }

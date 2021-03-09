@@ -1,18 +1,8 @@
-export function incremented() {
-  return {
-    type: 'counter/incremented',
-  }
-}
-
-export function decremented() {
-  return {
-    type: 'counter/decremented',
-  }
-}
+import { USER_LIST } from './constants';
 
 export function getUserList(payload) {
   return {
-    type: 'user/list',
+    type: `${USER_LIST}`,
     payload,
   }
 }
