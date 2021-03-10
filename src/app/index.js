@@ -11,13 +11,10 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 import './style.css';
+import routerList from './router';
 import HomePage from '../homePage/index';
 
 const { Header, Sider, Content } = Layout;
-
-const routerList = [
-  {key: 'UserManage', path: '/UserManage'}
-]
 
 function Index() {
   const [collapsed, setCollapsed] = useState(false);
