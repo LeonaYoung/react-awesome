@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Loadable from 'react-loadable';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import 'antd/dist/antd.css';
 import { Layout, Menu } from 'antd';
@@ -7,13 +8,16 @@ import {
   MenuFoldOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  UploadOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
 import './style.css';
 import HomePage from '../homePage/index';
-import UserManage from '../userManage/index.js';
 
 const { Header, Sider, Content } = Layout;
+
+const routerList = [
+  {key: 'UserManage', path: '/UserManage'}
+]
 
 function Index() {
   const [collapsed, setCollapsed] = useState(false);
@@ -31,9 +35,11 @@ function Index() {
             <Menu.Item key="1" icon={<UserOutlined />}>
               <Link to="/">HomePage</Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              <Link to="/usermanage">UserManage</Link>
-            </Menu.Item>
+            {routerList.map((item) => (
+              <Menu.Item key={item.key} icon={<VideoCameraOutlined />}>
+                <Link to={item.path}>{item.key}</Link>
+              </Menu.Item>
+            ))}
           </Menu>
         </Sider>
         <Layout className="site-layout">
@@ -54,8 +60,13 @@ function Index() {
             <Switch>
               <Route exact path="/" component={HomePage}>
               </Route>
-              <Route exact path="/usermanage" component={UserManage}>
-              </Route>
+              {routerList.map((item) => (
+                <Route key={item.key} exact path={item.path} component={Loadable({
+                  loader: () => import(`../${item.key}`),
+                  loading: () => (<LoadingOutlined />),
+                })}>
+                </Route>
+              ))}
             </Switch>
           </Content>
         </Layout>

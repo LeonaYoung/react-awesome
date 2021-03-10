@@ -1,10 +1,12 @@
 import { createStore, combineReducers } from 'redux'
-import userManage from './src/userManage/reducer'
+import userManage from './src/UserManage/reducer'
+
+const reducers = {
+  userManage,
+}
 
 let store = createStore(
-  combineReducers({
-    userManage,
-  }),
+  combineReducers(reducers),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
