@@ -8,6 +8,7 @@
     "start": "webpack serve --open --config webpack/webpack.config.dev.js",
     "dev": "webpack --config webpack/webpack.config.dev.js",
     "watch": "webpack --watch --config webpack/webpack.config.dev.js",
+    "mock": "node ./mockData/app.js",
     "newPage": "node ./nodeTools/newPage.js"
   },
   "author": "",

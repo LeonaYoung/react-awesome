@@ -8,7 +8,7 @@ var { createObjectExpression, createArrayExpression } = require('./utils');
 
 console.log(chalk.magenta('***********开始运行啦*******************'))
 
-var newPageName = 'TestPage';
+var newPageName = process.argv[2] ? process.argv[2] : 'TestPage';
 
 var appRouterPath = path.resolve(__dirname, '../src/app/router.js')
 var reductStorePath = path.resolve(__dirname, '../createStore.js')
