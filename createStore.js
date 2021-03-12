@@ -1,5 +1,6 @@
 import { createStore, combineReducers } from 'redux'
 import userManage from './src/UserManage/reducer'
+import storeFactory from './storeFactory';
 
 const reducers = {
   userManage,
