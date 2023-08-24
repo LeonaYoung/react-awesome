@@ -25,3 +25,7 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}

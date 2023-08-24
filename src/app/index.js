@@ -34,7 +34,7 @@ function Index() {
             </Menu.Item>
             {routerList.map((item) => (
               <Menu.Item key={item.key} icon={<VideoCameraOutlined />}>
-                <Link to={item.path}>{item.key}</Link>
+                <Link className="capitalize" to={item.path}>{item.key}</Link>
               </Menu.Item>
             ))}
           </Menu>

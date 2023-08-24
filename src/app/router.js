@@ -1,7 +1,7 @@
 const routerList = [
     {
-        key: 'UserManage',
-        path: '/UserManage'
+        key: 'userManage',
+        path: '/userManage'
     }
 ];
 export default routerList;
