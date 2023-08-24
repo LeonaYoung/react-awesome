@@ -88,8 +88,9 @@ estraverse.traverse(storeAst, {
 estraverse.traverse(storeAst, {
   enter: function (node, parent) {
     if (node.type == 'ObjectExpression' && parent) {
-      if (parent.id && parent.id.name === 'reducers') {;
-        node.properties = node.properties.concat(createObjectExpression(JSON.stringify({[newPageName]: newPageName})))
+      if (parent.id && parent.id.name === 'reducers') {
+        var str = '{ ' + newPageName + ':' + newPageName + ' }';
+        node.properties = node.properties.concat(createObjectExpression(JSON.parse(JSON.stringify(str))))
         return estraverse.VisitorOption.Break;
       }
     }
